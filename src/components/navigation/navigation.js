@@ -31,16 +31,22 @@ class Navigation extends React.Component {
       isOpen: !this.state.isOpen,
     })
   }
-  render() {
 
-    // this will be used to determine whether href should be #home for smoothscroll or / for redirect on brand
-    const Page = window.location.pathname;
+componentDidMount(){
+  if (typeof(window) !=='undefined'){
+    this.page = window.location.pathname;
+  }
+}
 
+  // this will be used to determine whether href should be #home for smoothscroll or / for redirect on brand
+  render() { 
+ 
+    const Page = window.location.path;
     return (
       <div>
         <Navbar className={`${styles.baseNav}`} light expand="md">
           <Container>
-            <NavbarBrand className={styles.navText} href={Page === '/' ? '#home' : '/'}>Tresean Adam</NavbarBrand>
+            <NavbarBrand className={styles.navText} href={this.page === '/' ? '#home' : '/'}>Tresean Adam</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
