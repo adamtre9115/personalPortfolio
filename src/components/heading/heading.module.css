@@ -1,0 +1,32 @@
+.headingText {
+    position: absolute;
+    top: 7%;
+    width: 100%;
+    text-align: left;
+    margin: 0 auto;
+    color: #192231;
+}
+
+.headingButton {
+    display: inline-flex;
+    color: #192231;
+    background-color: transparent;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid grey;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 3px;
+}
+
+.headingButton:hover {
+    color: #fff;
+    background-color: #192231;
+    text-decoration: none;
+}
+
+@media (max-width: 767px){
+    .headingText {
+        top: 3%;
+    }
+}

@@ -1,0 +1,21 @@
+.footer {
+    background-color: #192231;
+    margin-top: 20px;
+    padding: 10px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+    /* sticky footer */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerIconContainer {
+    display: inline-flex;
+}
+
+.footerIcon {
+    margin: 5px;
+}
+

@@ -1,0 +1,24 @@
+.baseNav {
+    background-color: #494e6b;
+    position: fixed !important;
+    width: 100%;
+    z-index: 1;
+}
+
+.navText {
+    color: #999 !important;
+}
+
+.navLi {
+    margin-bottom: 5px;
+}
+.navLink {
+    text-decoration: none;
+    display: block;
+    padding: .5rem 1rem;
+}
+
+.navLink:hover {
+    text-decoration: none;
+    color: #eb4949 !important;
+}

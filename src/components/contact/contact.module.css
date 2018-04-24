@@ -1,0 +1,27 @@
+.contactCenter {
+    text-align: center;
+}
+.contactInput {
+    border-radius: 0 !important;
+}
+
+.contactSubmit {
+    width: 100%;
+    color: #fff;
+    background-color: #494e6b;
+    border: none;
+}
+
+.contactSubmit:hover {
+    background-color: #eb4949;
+}
+
+.contactAll {
+    padding: 60px 0px;
+}
+
+@media (max-width: 767px){
+    .sendOff {
+        display: none;
+    }
+}
