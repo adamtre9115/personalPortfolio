@@ -33,14 +33,13 @@ class Navigation extends React.Component {
   }
 
   // this will be used to determine whether href should be #home for smoothscroll or / for redirect on brand
-  componentDidMount() {
+
+  render() {
+    // if window then set page to the pathname
     if (typeof window !== 'undefined') {
       this.page = window.location.pathname;
     }
-  }
 
-  render() {
-  
     return (
       <div>
         <Navbar className={`${styles.baseNav}`} light expand="md">
