@@ -40,7 +40,7 @@ class Navigation extends React.Component {
   }
 
   render() {
-    const Page = window.location.path
+  
     return (
       <div>
         <Navbar className={`${styles.baseNav}`} light expand="md">
