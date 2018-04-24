@@ -35,7 +35,7 @@ class Navigation extends React.Component {
   // this will be used to determine whether href should be #home for smoothscroll or / for redirect on brand
   componentDidMount() {
     if (typeof window !== 'undefined') {
-      this.page = window.location.pathname
+      this.page = window.location.pathname;
     }
   }
 

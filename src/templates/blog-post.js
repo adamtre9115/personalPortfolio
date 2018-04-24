@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import propTypes from 'prop-types';
-import Img from 'gatsby-image';
-import { Container, Row } from 'reactstrap';
+import React, { Component } from 'react'
+import propTypes from 'prop-types'
+import Img from 'gatsby-image'
+import { Container, Row } from 'reactstrap'
 import {
   FacebookShareButton,
   EmailShareButton,
@@ -11,12 +11,17 @@ import {
   EmailIcon,
   LinkedinIcon,
   TwitterIcon,
-} from 'react-share';
+} from 'react-share'
 
-import styles from './blog-post.module.css';
+import styles from './blog-post.module.css'
 
 class BlogPost extends Component {
   render() {
+    // if window is not undefined shareUrl = the page URL
+    if (typeof window !== 'undefined') {
+      this.shareUrl = window.location.href
+    }
+
     const {
       title,
       createdAt,
@@ -27,7 +32,7 @@ class BlogPost extends Component {
     {
       /* get current page location*/
     }
-    const shareUrl = window.location.href
+
     const Title = { title }
     return (
       <div>
@@ -50,41 +55,40 @@ class BlogPost extends Component {
                 __html: content.childMarkdownRemark.html,
               }}
             />
-            <hr/>
+            <hr />
             <p>Like what you've just read? Please do share!</p>
-              <FacebookShareButton
-                className={styles.blogIcon}
-                url={shareUrl}
-                quote={title}
-              >
-                <FacebookIcon size={32} round={true} />
-              </FacebookShareButton>
-          
-              <TwitterShareButton
-                className={styles.blogIcon}
-                url={shareUrl}
-                title={title}
-              >
-                <TwitterIcon size={32} round={true} />
-              </TwitterShareButton>
-    
-              <LinkedinShareButton
-                className={styles.blogIcon}
-                url={shareUrl}
-                description={title}
-              >
-                <LinkedinIcon size={32} round={true} />
-              </LinkedinShareButton>
-  
-              <EmailShareButton
-                className={styles.blogIcon}
-                url={shareUrl}
-                subject={title}
-                body={`Check out ${title}`}
-              >
-                <EmailIcon size={32} round={true} />
-              </EmailShareButton>
+            <FacebookShareButton
+              className={styles.blogIcon}
+              url={this.shareUrl}
+              quote={title}
+            >
+              <FacebookIcon size={32} round={true} />
+            </FacebookShareButton>
 
+            <TwitterShareButton
+              className={styles.blogIcon}
+              url={this.shareUrl}
+              title={title}
+            >
+              <TwitterIcon size={32} round={true} />
+            </TwitterShareButton>
+
+            <LinkedinShareButton
+              className={styles.blogIcon}
+              url={this.shareUrl}
+              description={title}
+            >
+              <LinkedinIcon size={32} round={true} />
+            </LinkedinShareButton>
+
+            <EmailShareButton
+              className={styles.blogIcon}
+              url={this.shareUrl}
+              subject={title}
+              body={`Check out ${title}`}
+            >
+              <EmailIcon size={32} round={true} />
+            </EmailShareButton>
           </Container>
         </div>
         <div>
@@ -98,8 +102,6 @@ class BlogPost extends Component {
 BlogPost.propTypes = {
   data: propTypes.object.isRequired,
 }
-
-
 
 export const pageQuery = graphql`
   query blogPostQuery($slug: String!) {
@@ -119,4 +121,4 @@ export const pageQuery = graphql`
     }
   }
 `
-export default BlogPost;
+export default BlogPost
