@@ -24,7 +24,7 @@ const FormContact = () => (
         </div>
         <Row>
           <Col md="6">
-            <Form name='contact-form' action='POST' netlify>
+            <Form name='contact-form' method='POST' netlify>
               <FormGroup>
                 <Input
                   className={styles.contactInput}
