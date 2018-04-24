@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from 'gatsby-link';
+import React from 'react'
+import Link from 'gatsby-link'
 import {
   Container,
   Collapse,
@@ -13,9 +13,9 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-} from 'reactstrap';
+} from 'reactstrap'
 
-import styles from './navigation.module.css';
+import styles from './navigation.module.css'
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -32,35 +32,59 @@ class Navigation extends React.Component {
     })
   }
 
-componentDidMount(){
-  if (typeof(window) !=='undefined'){
-    this.page = window.location.pathname;
-  }
-}
-
   // this will be used to determine whether href should be #home for smoothscroll or / for redirect on brand
-  render() { 
- 
-    const Page = window.location.path;
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      this.page = window.location.pathname
+    }
+  }
+
+  render() {
+    const Page = window.location.path
     return (
       <div>
         <Navbar className={`${styles.baseNav}`} light expand="md">
           <Container>
-            <NavbarBrand className={styles.navText} href={this.page === '/' ? '#home' : '/'}>Tresean Adam</NavbarBrand>
+            <NavbarBrand
+              className={styles.navText}
+              href={this.page === '/' ? '#home' : '/'}
+            >
+              Tresean Adam
+            </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem className={styles.navLi}>
-                  <NavLink className={`${styles.navText} ${styles.navLink}`} href="/#about">About</NavLink>
+                  <NavLink
+                    className={`${styles.navText} ${styles.navLink}`}
+                    href="/#about"
+                  >
+                    About
+                  </NavLink>
                 </NavItem>
                 <NavItem className={styles.navLi}>
-                  <NavLink className={`${styles.navText} ${styles.navLink}`} href="/#portfolio">Portfolio</NavLink>
+                  <NavLink
+                    className={`${styles.navText} ${styles.navLink}`}
+                    href="/#portfolio"
+                  >
+                    Portfolio
+                  </NavLink>
                 </NavItem>
                 <NavItem className={styles.navLi}>
-                  <NavLink className={`${styles.navText} ${styles.navLink}`} href="/#contact">Contact</NavLink>
+                  <NavLink
+                    className={`${styles.navText} ${styles.navLink}`}
+                    href="/#contact"
+                  >
+                    Contact
+                  </NavLink>
                 </NavItem>
                 <NavItem className={styles.navLi}>
-                  <Link className={`${styles.navText} ${styles.navLink}`} to="/blog/">Blog</Link>
+                  <Link
+                    className={`${styles.navText} ${styles.navLink}`}
+                    to="/blog/"
+                  >
+                    Blog
+                  </Link>
                 </NavItem>
               </Nav>
             </Collapse>
@@ -71,4 +95,4 @@ componentDidMount(){
   }
 }
 
-export default Navigation;
+export default Navigation
