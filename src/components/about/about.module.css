@@ -8,6 +8,11 @@
     color: #fff;
 }
 
+.aboutText a {
+    text-decoration: underline;
+    color: #fff;
+}
 .aboutCenter {
     text-align: center;
 }
+

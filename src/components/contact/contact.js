@@ -60,7 +60,7 @@ const FormContact = () => (
                   className={styles.contactInput}
                   type="textarea"
                   name="message"
-                  id="exampleText"
+                  id="message"
                   placeholder="Message"
                 />
               </FormGroup>
