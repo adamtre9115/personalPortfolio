@@ -24,7 +24,7 @@ const FormContact = () => (
         </div>
         <Row>
           <Col md="6">
-            <Form name='contact-form' method='POST' netlify>
+            <Form name='Contact Form' method='POST' data-netlify="true">
               <FormGroup>
                 <Input
                   className={styles.contactInput}
@@ -59,7 +59,7 @@ const FormContact = () => (
                 <Input
                   className={styles.contactInput}
                   type="textarea"
-                  name="text"
+                  name="message"
                   id="exampleText"
                   placeholder="Message"
                 />
