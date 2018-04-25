@@ -28,6 +28,19 @@ html {
 .blog-heading {
   margin-bottom: 20px;
 }
+
+#lost-container {
+  position: absolute;
+  top: 22%;
+  width: 100%;
+  text-align: center;
+}
+
+#lost-container a {
+  text-decoration: none;
+  color: #494e6b;
+}
+
 /* html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
