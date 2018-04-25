@@ -24,12 +24,13 @@ const FormContact = () => (
         </div>
         <Row>
           <Col md="6">
-            <Form name='Contact Form' method='POST' data-netlify='true' data-netlify-honeypot='bot-field'>
+            <Form name='Contact Form' method='POST' data-netlify='true'>
               <FormGroup>
                 <Input
                   className={styles.contactInput}
                   type="text"
                   id="name"
+                  name="name"
                   placeholder="Name"
                   required
                 />
@@ -40,6 +41,7 @@ const FormContact = () => (
                   className={styles.contactInput}
                   type="email"
                   id="email"
+                  name="email"
                   placeholder="Email"
                   required
                 />
@@ -50,6 +52,7 @@ const FormContact = () => (
                   className={styles.contactInput}
                   type="text"
                   id="subject"
+                  name="subject"
                   placeholder="Subject"
                   required
                 />
@@ -59,6 +62,7 @@ const FormContact = () => (
                 <Input
                   className={styles.contactInput}
                   type="textarea"
+                  name="message"
                   name="message"
                   id="message"
                   placeholder="Message"
