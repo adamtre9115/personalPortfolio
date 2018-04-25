@@ -16,3 +16,8 @@
     text-align: center;
 }
 
+@media (max-width: 767px){
+    .aboutText {
+        margin-top: 10px
+    }
+}
