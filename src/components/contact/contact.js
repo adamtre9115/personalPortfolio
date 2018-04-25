@@ -24,7 +24,11 @@ const FormContact = () => (
         </div>
         <Row>
           <Col md="6">
-            <Form name='Contact Form' method='POST' data-netlify='true'>
+            <Form name='Contact Form' method='post' data-netlify='true' data-netlify-honeypot="bot-field">
+              <Input
+                type="hidden"
+                name="bot-field"
+              />
               <FormGroup>
                 <Input
                   className={styles.contactInput}
