@@ -69,7 +69,7 @@ const FormContact = () => (
             </Form>
           </Col>
           <Col md="6" className={`${styles.sendOff} ${styles.contactCenter}`} >
-          <img src="http://placeimg.com/250/200/tech" alt="Placeholder"/>
+          <img src="https://placeimg.com/250/200/tech" alt="Placeholder"/>
           </Col>
         </Row>
       </Container>
