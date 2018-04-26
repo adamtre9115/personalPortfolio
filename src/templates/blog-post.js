@@ -96,7 +96,7 @@ class BlogPost extends Component {
         <div id="comment-container">
           <Container>
             <ReactDisqusComments
-              shortname={process.env.SHORT_NAME}
+              shortname={'my-portfolio-9'}
               identifier={id}
               title={title}
               url={this.shareUrl}
