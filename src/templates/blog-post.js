@@ -32,12 +32,14 @@ class BlogPost extends Component {
     } = this.props.data.contentfulBlog
 
     const Title = { title }
-
+  
     const disqusShortname = process.env.SHORT_NAME;
     const disqusConfig = {
+      url: this.shareUrl,
       identifier: {id},
       title: Title
     };
+
     return (
       <div>
         <div className={styles.allBlog}>
