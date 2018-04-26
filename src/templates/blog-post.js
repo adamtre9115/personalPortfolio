@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import propTypes from 'prop-types'
-import Img from 'gatsby-image'
-import { Container, Row } from 'reactstrap'
+import React, { Component } from 'react';
+import propTypes from 'prop-types';
+import Img from 'gatsby-image';
+import { Container, Row } from 'reactstrap';
+import { DiscussionEmbed } from "disqus-react";
 import {
   FacebookShareButton,
   EmailShareButton,
@@ -11,9 +12,9 @@ import {
   EmailIcon,
   LinkedinIcon,
   TwitterIcon,
-} from 'react-share'
+} from 'react-share';
 
-import styles from './blog-post.module.css'
+import styles from './blog-post.module.css';
 
 class BlogPost extends Component {
   render() {
@@ -21,19 +22,22 @@ class BlogPost extends Component {
     if (typeof window !== 'undefined') {
       this.shareUrl = window.location.href
     }
-
+    
     const {
+      id,
       title,
       createdAt,
       featuredImage,
       content,
     } = this.props.data.contentfulBlog
 
-    {
-      /* get current page location*/
-    }
-
     const Title = { title }
+
+    const disqusShortname = process.env.SHORT_NAME;
+    const disqusConfig = {
+      identifier: {id},
+      title: Title
+    };
     return (
       <div>
         <div className={styles.allBlog}>
@@ -41,7 +45,7 @@ class BlogPost extends Component {
             <h1 className={`${styles.blogHeading} ${styles.blogCenter}`}>
               {title}
             </h1>
-            <p className={styles.blogCenter}>Posted {createdAt}</p>
+            <p className={styles.blogCenter}>Posted: {createdAt}</p>
             <div>
               {featuredImage ? (
                 <div className={styles.blogCenter}>
@@ -50,7 +54,7 @@ class BlogPost extends Component {
               ) : null}
             </div>
             <hr />
-            <div
+            <div id="blog-post"
               dangerouslySetInnerHTML={{
                 __html: content.childMarkdownRemark.html,
               }}
@@ -91,8 +95,10 @@ class BlogPost extends Component {
             </EmailShareButton>
           </Container>
         </div>
-        <div>
-          <Container />
+        <div id="comment-container">
+          <Container>
+            <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+          </Container>
         </div>
       </div>
     )
@@ -106,6 +112,7 @@ BlogPost.propTypes = {
 export const pageQuery = graphql`
   query blogPostQuery($slug: String!) {
     contentfulBlog(slug: { eq: $slug }) {
+      id
       title
       createdAt(formatString: "MMMM DD, YYYY")
       featuredImage {

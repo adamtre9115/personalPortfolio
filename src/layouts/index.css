@@ -41,6 +41,17 @@ html {
   color: #494e6b;
 }
 
+#blog-post img {
+  display: block;
+  margin: 0 auto;
+}
+
+#blog-post code {
+  text-align: center;
+}
+#comment-container {
+  padding-bottom: 20px;
+}
 /* html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
