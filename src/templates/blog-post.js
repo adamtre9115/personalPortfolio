@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import Img from 'gatsby-image';
 import { Container, Row } from 'reactstrap';
-import ReactDisqusComments from 'react-disqus-comments';
+import { DiscussionEmbed } from "disqus-react";
 import {
   FacebookShareButton,
   EmailShareButton,
@@ -17,9 +17,6 @@ import {
 import styles from './blog-post.module.css';
 
 class BlogPost extends Component {
-  handleNewComment(comment) {
-    console.log(comment.text);
-  }
   render() {
     // if window is not undefined shareUrl = the page URL
     if (typeof window !== 'undefined') {
@@ -35,7 +32,14 @@ class BlogPost extends Component {
     } = this.props.data.contentfulBlog
 
     const Title = { title }
-
+  
+    const disqusShortname = 'my-portfolio-9';
+    const disqusConfig = {
+      url: this.shareUrl,
+      identifier: {id},
+      title: Title
+    };
+console.log(this.props)
     return (
       <div>
         <div className={styles.allBlog}>
@@ -95,12 +99,7 @@ class BlogPost extends Component {
         </div>
         <div id="comment-container">
           <Container>
-            <ReactDisqusComments
-              shortname={'my-portfolio-9'}
-              identifier={id}
-              title={title}
-              url={this.shareUrl}
-              onNewComment={this.handleNewComment}/>
+            <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
           </Container>
         </div>
       </div>
