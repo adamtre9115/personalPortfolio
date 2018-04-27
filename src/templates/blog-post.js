@@ -39,7 +39,7 @@ class BlogPost extends Component {
       identifier: {id},
       title: Title
     };
-console.log(this.props)
+
     return (
       <div>
         <div className={styles.allBlog}>
@@ -130,4 +130,4 @@ export const pageQuery = graphql`
     }
   }
 `
-export default BlogPost
+export default BlogPost;
